@@ -20,6 +20,7 @@ COPY redis-master.conf /redis-master/redis.conf
 COPY redis-slave.conf /redis-slave/redis.conf
 COPY run.sh /run.sh
 
+RUN chmod 755 /run.sh
 CMD [ "/run.sh" ]
 
 ENTRYPOINT [ "bash", "-c" ]
