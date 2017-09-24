@@ -11,9 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+FROM alpine:3.6
 
-FROM alpine:3.4
-
+RUN apk update
+RUN apk upgrade
 RUN apk add --no-cache redis sed bash
 
 COPY redis-master.conf /redis-master/redis.conf
