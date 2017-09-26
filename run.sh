@@ -69,6 +69,7 @@ function launchslave() {
   done
   sed -i "s/%master-ip%/${master}/" /redis-slave/redis.conf
   sed -i "s/%master-port%/6379/" /redis-slave/redis.conf
+  sed -i "s/%slave-addr%/${SLAVE_ADDR}/" /redis-slave/redis.conf
   redis-server /redis-slave/redis.conf --protected-mode no
 }
 
