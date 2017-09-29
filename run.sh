@@ -23,9 +23,6 @@ function launchmaster() {
 }
 
 function launchsentinel() {
-  echo "${HOST}"
-  echo "${PORT}"
-
   while true; do
     master=$(redis-cli -h ${REDIS_SENTINEL_SERVICE_HOST} -p ${REDIS_SENTINEL_SERVICE_PORT} --csv SENTINEL get-master-addr-by-name mymaster | tr ',' ' ' | cut -d' ' -f1)
     if [[ -n ${master} ]]; then
